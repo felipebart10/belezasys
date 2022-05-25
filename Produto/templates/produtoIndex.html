@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% block content %}
+<div class="row">
+    <h1>Produtos</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Marca</th>
+                <th scope="col">Fornecedor</th>
+                <th scope="col">Peso líq (g)</th>
+                <th scope="col">Preço de custo</th>
+                <th scope="col">Preço de venda</th>
+                <th scope="col">Estoque mínimo</th>
+                <th scope="col">Ação</th> 
+            </tr>
+        </thead>
+        <tbody>
+            {% for produto in produtos %}
+            <tr>
+                <td scope="row">{{produto.nome}}</td>
+                <td scope="row">{{produto.categoria}}</td>
+                <td scope="row">{{produto.marca}}</td>
+                <td scope="row">{{produto.fornecedor}}</td>
+                <td scope="row">{{produto.peso_liq}}</td>
+                <td scope="row">{{produto.preco_custo}}</td>
+                <td scope="row">{{produto.preco_venda}}</td>
+                <td scope="row">{{produto.estoque_min}}</td>
+                <td scope="row">
+                    <a class="btn btn-warning" href="{% url 'produtoEdit' produto.pk %}">Editar</a>
+                    <a class="btn btn-danger" href="{% url 'produtoDel' produto.pk %}">Excluir</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

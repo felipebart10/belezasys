@@ -4,8 +4,11 @@
 
 from django.urls import path
 
-from .views import listar
+from .views import IndexPessoaView, CreatePessoaView, UpdatePessoaView, DeletePessoaView
 
 urlpatterns = [
-    path('listar', listar, name='index'),
+    path('', IndexPessoaView.as_view(), name='pessoaIndex'),
+    path('new', CreatePessoaView.as_view(), name='add_pessoa'),
+    path('<int:pk>/edit', UpdatePessoaView.as_view(), name='edit_pessoa'),
+    path('<int:pk>/delete', DeletePessoaView.as_view(), name='del_pessoa')
 ]

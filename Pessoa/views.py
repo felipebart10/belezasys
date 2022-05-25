@@ -1,7 +1,49 @@
-from multiprocessing import context
-from django.shortcuts import render
+from django.views.generic import ListView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import PessoaModel
+from django.urls import reverse_lazy
+
 # Create your views here.
 
-def listar(request):
-    return render(request,'lista_pessoa.html')
+
+class IndexPessoaView(ListView):
+    models = PessoaModel
+    template_name = "pessoaIndex.html"
+    queryset = PessoaModel.objects.all()
+    context_object_name = "pessoas"
+
+
+class CreatePessoaView(CreateView):
+    model = PessoaModel
+    template_name = "pessoaForm.html"
+    fields = [
+        "nome",
+        "cpf",
+        "telefone",
+        "email",
+        "data_nasc",
+        "endereco",
+        "sexo",
+        "is_colaborador",
+    ]
+    success_url = reverse_lazy("pessoaIndex")
+
+class UpdatePessoaView(UpdateView):
+    model = PessoaModel
+    template_name = "pessoaForm.html"
+    fields = [
+        "nome",
+        "cpf",
+        "telefone",
+        "email",
+        "data_nasc",
+        "endereco",
+        "sexo",
+        "is_colaborador",
+    ]
+    success_url = reverse_lazy("pessoaIndex")
+
+class DeletePessoaView(DeleteView):
+    model = PessoaModel
+    template_name = "pessoaDel.html"
+    success_url = reverse_lazy('pessoaIndex')

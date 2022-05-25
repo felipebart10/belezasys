@@ -12,3 +12,8 @@ class ProdutoModel(models.Model):
     preco_venda = models.DecimalField('Preço de venda', max_digits=7, decimal_places=2)
     estoque_min = models.IntegerField('Estoque mínimo')
     
+    class Meta:
+        verbose_name = 'Produto'
+
+    def __str__(self) -> str:
+        return self.nome
