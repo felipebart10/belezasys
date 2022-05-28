@@ -3,10 +3,10 @@
 {% block content %}
 <div class="row pb-3">
     <div class="col-md-10">
-        <h2>Lista de pessoas</h2>
+        <h2>Lista de fornecedor</h2>
     </div>
     <div class="col-md-2">
-        <a href="{% url 'pessoaNew' %}" class="btn btn-success btn-lg active" role="button" aria-pressed="true"><i
+        <a href="{% url 'fornecedorNew' %}" class="btn btn-success btn-lg active" role="button" aria-pressed="true"><i
                 class="fa-solid fa-circle-plus"></i> Adicionar</a>
     </div>
 </div>
@@ -14,25 +14,25 @@
         <thead>
             <tr>
                 <th class="pl-3" scope="col">Nome</th>
+                <th scope="col">CNPJ</th>
                 <th scope="col">Telefone</th>
                 <th scope="col">E-mail</th>
-                <th scope="col">Data de nascimento</th>
-                <th scope="col">Sexo</th>
+                <th scope="col">Endereço</th>
                 <th class="text-right pr-3" scope="col">Ações</th>
             </tr>
         </thead>
         <tbody>
-            {% for pessoa in pessoas %}
+            {% for fornecedor in fornecedores %}
             <tr>
-                <td class="pl-3" scope="row">{{pessoa.nome}}</td>
-                <td scope="row">{{pessoa.formatar_telefone}}</td>
-                <td scope="row">{{pessoa.email}}</td>
-                <td scope="row">{{pessoa.data_nasc}}</td>
-                <td scope="row">{{pessoa.sexo}}</td>
+                <td class="pl-3" scope="row">{{fornecedor.nome}}</td>
+                <td scope="row">{{fornecedor.formatar_cnpj}}</td>
+                <td scope="row">{{fornecedor.telefone}}</td>
+                <td scope="row">{{fornecedor.email}}</td>
+                <td scope="row">{{fornecedor.endereco}}</td>
                 <td class="text-right pr-3" scope="row">
-                    <a class="btn btn-warning btn-sm px-3" href="{% url 'pessoaEdit' pessoa.pk %}"><i
+                    <a class="btn btn-warning btn-sm px-3" href="{% url 'fornecedorEdit' fornecedor.pk %}"><i
                             class="fa-solid fa-edit fa-sm"></i></a>
-                    <a class="btn btn-danger btn-sm px-3" href="{% url 'pessoaDel' pessoa.pk %}"><i
+                    <a class="btn btn-danger btn-sm px-3" href="{% url 'fornecedorDel' fornecedor.pk %}"><i
                             class="fa-solid fa-trash fa-sm"></i></a>
                 </td>
             </tr>

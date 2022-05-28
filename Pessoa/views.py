@@ -27,6 +27,7 @@ class CreatePessoaView(CreateView):
         "is_colaborador",
     ]
     success_url = reverse_lazy("pessoaIndex")
+    extra_context = {"titulo": "Adicionar"}
 
 class UpdatePessoaView(UpdateView):
     model = PessoaModel
@@ -42,6 +43,7 @@ class UpdatePessoaView(UpdateView):
         "is_colaborador",
     ]
     success_url = reverse_lazy("pessoaIndex")
+    extra_context = {"titulo": "Editar"}
 
 class DeletePessoaView(DeleteView):
     model = PessoaModel

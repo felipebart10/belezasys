@@ -12,7 +12,6 @@ class IndexServicoView(ListView):
     queryset = ServicoModel.objects.all()
     context_object_name = "servicos"
 
-
 class CreateServicoView(CreateView):
     model = ServicoModel
     template_name = "servicoForm.html"
@@ -23,6 +22,7 @@ class CreateServicoView(CreateView):
         "tempo_execucao",
     ]
     success_url = reverse_lazy("servicoIndex")
+    extra_context = {"titulo": "Adicionar"}
 
 class UpdateServicoView(UpdateView):
     model = ServicoModel
@@ -34,6 +34,7 @@ class UpdateServicoView(UpdateView):
         'tempo_execucao'
     ]
     success_url = reverse_lazy("servicoIndex")
+    extra_context = {"titulo": "Editar"}
 
 class DeleteServicoView(DeleteView):
     model = ServicoModel

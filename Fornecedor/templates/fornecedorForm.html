@@ -2,14 +2,14 @@
 {% load bootstrap4 %}
 {% load humanize %}
 {% block content %}
-<h1 class="pb-4 text-center">{{titulo}} produto</h1>
+<h1 class="pb-4 text-center">{{titulo}} fornecedor</h1>
 <form method="post">
     {% csrf_token %}
     {% bootstrap_form form layout="horizontal" size="small" label_class="form-label col-md-3" field_class="col-md-8"%}
     {% buttons %}
     <div class="text-center">
         <button type="submit" class="btn btn-success">Salvar</button>
-        <a class="btn btn-danger" href="{% url 'produtoIndex' %}">Cancelar</a>
+        <a class="btn btn-danger" href="{% url 'fornecedorIndex' %}">Cancelar</a>
     </div>
     {% endbuttons %}
 </form>

@@ -5,10 +5,8 @@
         {% csrf_token %}
         <p>Tem certeza que quer deletar o serviço "{{object}}"?</p>
         {% buttons %}
-            <button type="submit" class="btn btn-danger">Confirmar</button>
-            <button type="button" class="btn btn-warning">
-                <a href="{% url 'servicoIndex' %}">Cancelar</a>
-            </button>
+        <button type="submit" class="btn btn-success">Confirmar</button>
+        <a class="btn btn-danger" href="{% url 'servicoIndex' %}">Cancelar</a>
         {% endbuttons %}
 
     </form>

@@ -26,6 +26,7 @@ class CreateProdutoView(CreateView):
         'estoque_min'
     ]
     success_url = reverse_lazy("produtoIndex")
+    extra_context = {"titulo": "Adicionar"}
 
 class UpdateProdutoView(UpdateView):
     template_name = 'produtoForm.html'
@@ -41,6 +42,7 @@ class UpdateProdutoView(UpdateView):
         'estoque_min'
     ]
     success_url = reverse_lazy("produtoIndex")
+    extra_context = {"titulo": "Editar"}
 
 class DeleteProdutoView(DeleteView):
     model = ProdutoModel

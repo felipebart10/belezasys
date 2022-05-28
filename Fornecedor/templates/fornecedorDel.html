@@ -3,10 +3,10 @@
 {% block content %}
     <form method="post">
         {% csrf_token %}
-        <p>Tem certeza que quer deletar a pessoa "{{object}}"?</p>
+        <p>Tem certeza que quer deletar o fornecedor "{{object}}"?</p>
         {% buttons %}
             <button type="submit" class="btn btn-success">Confirmar</button>
-            <a class="btn btn-danger" href="{% url 'pessoaIndex' %}">Cancelar</a>
+            <a class="btn btn-danger" href="{% url 'fornecedorIndex' %}">Cancelar</a>
                 
         {% endbuttons %}
 

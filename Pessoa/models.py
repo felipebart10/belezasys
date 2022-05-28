@@ -1,4 +1,3 @@
-import email
 from django.db import models
 
 # Create your models here.
@@ -17,3 +16,9 @@ class PessoaModel(models.Model):
 
     def __str__(self):
         return self.nome
+
+    def formatar_telefone(self):
+        return '({}{}) {}{}{}{}{}-{}{}{}{}'.format(*self.telefone)
+
+    def formatar_cpf(self):
+        return '{}{}{}.{}{}{}.{}{}{}-{}{}'.format(*self.cpf)
