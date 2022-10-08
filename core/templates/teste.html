@@ -2,5 +2,15 @@
 {% load bootstrap4 %}
 {% load humanize %}
 {% block content %}
-    <h1>E ae</h1>
+    <div class="jumbotron text-center">
+        <h1 class="display-3">Bem vindo ao BelezaSys, {{user.first_name}}</h1>
+        <p class="lead">Franca, 15 de Outubro de 2022. 14:22.</p>
+        <hr>
+        <p>
+        Encontrou um erro no sistema? <a href="https://bootstrapcreative.com/">Entre em contato</a>
+        </p>
+        <p class="lead">
+        <a class="btn btn-primary btn-sm" style="background-color:blueviolet" href="https://bootstrapcreative.com/" role="button">Consultar agenda</a>
+        </p>
+    </div>
 {% endblock %}

@@ -9,33 +9,95 @@
     {% bootstrap_css %}
     <title>BelezaSys</title>
     <style>
-        .sidebar{
-        background-color: #f5f5f5;
-        padding-right: 20px;
-        padding-top: 20px;
-        min-height: calc(100vh - 50px);
-}
+        * {
+            font-size: 14px;
+        }
+
+        .sidebar {
+            background-color: #f5f5f5;
+            padding: 0;
+            padding-top: 4rem;
+            min-height: calc(100vh - 50px);
+        }
+
+        .navbar {
+            background-color: #fafafa;
+            border-bottom: 2px solid #a15fda;
+        }
+
+        .navbar-brand {
+            color: #a15fda;
+        }
+
+        .nav>li {
+            transition: 0.5s;
+            padding: 5px 0px;
+            text-align: center;
+            pointer-events: none;
+        }
+
+        .nav>li>a>h5 {
+            vertical-align: bottom;
+            margin-bottom: 0;
+            color: #a15fda;
+            transition: 0.5s;
+            pointer-events: auto;
+        }
+
+        .nav>li>a>h5:hover {
+            color: #fafafa;
+            transition: 0.5s;
+        }
+
+        .nav>li:hover {
+            background-color: #a15fda;
+            color: #fafafa;
+        }
     </style>
     <script src="https://kit.fontawesome.com/c194a9b594.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="d-flex flex-column h-100">
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-        <a href="/" class="navbar-brand ml-3"><h2>BelezaSys</h2></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar5">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <a href="/admin/" class="btn btn-warning active" role="button" aria-pressed="true"><i
-            class="fa-solid fa-cog"></i> Administração</a>
+    <nav class="sticky-top navbar navbar-expand-md">
+        <div class="d-flex flex-grow-1">
+            <a href="/" class="navbar-brand">
+                <h3 class="pl-5 m-0">BelezaSys</h3>
+            </a>
+            <div class="w-100 text-right">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar7">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </div>
+        <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar7">
+            <ul class="navbar-nav ml-auto flex-nowrap">
+                <li class="nav-item px-2">
+                    <a href="/admin/" class="btn btn-outline-dark" role="button" aria-pressed="true"><i
+                            class="fa-solid fa-cog pr-2"></i>Administração</a>
+                </li>
+                <li class="nav-item px-2">
+                    <a href="/admin/" class="btn btn-outline-dark" role="button" aria-pressed="true"><i
+                            class="fa-solid fa-user pr-2"></i>Login</a>
+                </li>
+            </ul>
+        </div>
     </nav>
     <div class="container-fluid flex-grow-1 d-flex">
         <div class="row flex-fill flex-column flex-sm-row">
-            <div class="col-sm-3 col-md-2 sidebar flex-shrink-1 bg-dark pt-3" id="Navbar">
+            <div class="col-sm-2 col-md-2 sidebar flex-shrink-1" id="Navbar">
                 <ul class="nav flex-sm-column">
-                    <li class="py-2"><a class="nav-link text-white bg-dark" href="{% url 'pessoaIndex' %}"><h4>Pessoas</h4></a></li>
-                    <li class="py-2"><a class="nav-link text-white bg-dark" href="{% url 'produtoIndex' %}"><h4>Produtos</h4></a></li>
-                    <li class="py-2"><a class="nav-link text-white bg-dark" href="{% url 'servicoIndex' %}"><h4>Serviços</h4></a></li>
-                    <li class="py-2"><a class="nav-link text-white bg-dark" href="{% url 'fornecedorIndex' %}"><h4>Fornecedores</h4></a></li>
+                    <li><a class="nav-link" href="{% url 'produtoIndex' %}">
+                            <h5>Produtos</h5>
+                        </a></li>
+                    <li><a class="nav-link" href="{% url 'servicoIndex' %}">
+                            <h5>Serviços</h5>
+                        </a></li>
+                    <li><a class="nav-link" href="{% url 'fornecedorIndex' %}">
+                            <h5>Fornecedores</h4>
+                        </a></li>
+                    <li><a class="nav-link" href="{% url 'pessoaIndex' %}">
+                            <h5>Pessoas</h5>
+                        </a></li>
                 </ul>
             </div>
             <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 flex-grow-1 px-5 py-4">
